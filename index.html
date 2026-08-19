@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WEB GET KEY - AIMLOCK HZZ</title>
+    <title>AIMLOCK HZZ</title>
 
     <style>
 
@@ -42,12 +42,6 @@
 
         }
 
-        /* =========================
-
-           CONTAINER
-
-        ========================= */
-
         .container {
 
             width: 100%;
@@ -60,7 +54,7 @@
 
             border-radius: 32px;
 
-            padding: 38px 28px 28px;
+            padding: 25px 28px 28px;
 
             background:
 
@@ -78,31 +72,7 @@
 
         }
 
-        /* =========================
-
-           HEADER
-
-        ========================= */
-
-        .top-title {
-
-            text-align: center;
-
-            font-size: 32px;
-
-            font-weight: 800;
-
-            letter-spacing: -1px;
-
-            margin-bottom: 30px;
-
-        }
-
-        /* =========================
-
-           PRODUCT HEADER
-
-        ========================= */
+        /* PRODUCT */
 
         .product {
 
@@ -114,7 +84,7 @@
 
             gap: 20px;
 
-            padding: 0 26px 38px;
+            padding: 15px 26px 38px;
 
         }
 
@@ -164,11 +134,7 @@
 
         }
 
-        /* =========================
-
-           DOWNLOAD BUTTON
-
-        ========================= */
+        /* DOWNLOAD */
 
         .download-btn {
 
@@ -220,11 +186,7 @@
 
         }
 
-        /* =========================
-
-           MAIN TITLE
-
-        ========================= */
+        /* MAIN TITLE */
 
         .main-title {
 
@@ -252,11 +214,7 @@
 
         }
 
-        /* =========================
-
-           STEP CARD
-
-        ========================= */
+        /* STEP */
 
         .step {
 
@@ -270,7 +228,7 @@
 
             min-height: 158px;
 
-            padding: 28px 28px;
+            padding: 28px;
 
             margin-bottom: 28px;
 
@@ -289,10 +247,6 @@
                     #080808
 
                 );
-
-            box-shadow:
-
-                inset 0 0 30px rgba(255,255,255,0.008);
 
         }
 
@@ -374,11 +328,7 @@
 
         }
 
-        /* =========================
-
-           GET KEY
-
-        ========================= */
+        /* GET KEY */
 
         .key-card {
 
@@ -420,17 +370,7 @@
 
         }
 
-        .key-button:active {
-
-            transform: scale(0.99);
-
-        }
-
-        /* =========================
-
-           NOTE
-
-        ========================= */
+        /* NOTE */
 
         .note {
 
@@ -472,11 +412,7 @@
 
         }
 
-        /* =========================
-
-           FOOTER
-
-        ========================= */
+        /* FOOTER */
 
         footer {
 
@@ -494,11 +430,7 @@
 
         }
 
-        /* =========================
-
-           KEY RESULT
-
-        ========================= */
+        /* KEY RESULT */
 
         .key-result {
 
@@ -536,11 +468,7 @@
 
         }
 
-        /* =========================
-
-           MOBILE
-
-        ========================= */
+        /* MOBILE */
 
         @media (max-width: 700px) {
 
@@ -552,23 +480,15 @@
 
             .container {
 
-                padding: 27px 14px 20px;
+                padding: 20px 14px;
 
                 border-radius: 25px;
 
             }
 
-            .top-title {
-
-                font-size: 25px;
-
-                margin-bottom: 28px;
-
-            }
-
             .product {
 
-                padding: 0 8px 32px;
+                padding: 10px 8px 32px;
 
                 flex-direction: column;
 
@@ -746,21 +666,11 @@
 
 <div class="container">
 
-    <!-- HEADER -->
-
-    <div class="top-title">
-
-        WEB GET KEY
-
-    </div>
-
     <!-- PRODUCT -->
 
     <div class="product">
 
         <div class="product-left">
-
-            <!-- Đổi logo.png thành ảnh logo của bạn -->
 
             <img
 
@@ -998,12 +908,6 @@
 
 <script>
 
-    /* =========================
-
-       LINK DISCORD
-
-    ========================= */
-
     function joinDiscord() {
 
         window.open(
@@ -1015,12 +919,6 @@
         );
 
     }
-
-    /* =========================
-
-       LINK TELEGRAM
-
-    ========================= */
 
     function joinTelegram() {
 
@@ -1034,12 +932,6 @@
 
     }
 
-    /* =========================
-
-       DOWNLOAD AIMLOCK
-
-    ========================= */
-
     function downloadAimlock() {
 
         window.open(
@@ -1052,12 +944,6 @@
 
     }
 
-    /* =========================
-
-       GET KEY
-
-    ========================= */
-
     function getKey() {
 
         const button = document.querySelector(".key-button");
@@ -1067,20 +953,6 @@
         button.disabled = true;
 
         setTimeout(() => {
-
-            /*
-
-             * Đây chỉ là key demo.
-
-             *
-
-             * GitHub Pages chỉ chạy HTML/CSS/JS
-
-             * nên không thể tự tạo key bảo mật
-
-             * ở phía server.
-
-             */
 
             const randomKey =
 
