@@ -1,4 +1,126 @@
-if (mitxy_js_p >= 100) {
+<!DOCTYPE html>
+        <html lang="vi">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          <title>Login</title>
+          <style>
+            :root {
+              --mitxy_css_bg: #000000;
+              --mitxy_css_card_bg: #121214;
+              --mitxy_css_border: rgba(255, 255, 255, 0.12);
+              --mitxy_css_text: #ffffff;
+              --mitxy_css_subtext: #a1a1aa;
+              --mitxy_css_green: #22c55e;
+            }
+            * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; user-select: none; }
+            body {
+              background: var(--mitxy_css_bg);
+              color: var(--mitxy_css_text);
+              min-height: 100vh;
+              display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; position: relative; overflow: hidden;
+            }
+            .mitxy_css_bg_grid {
+              position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+              background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+              background-size: 30px 30px; z-index: 1; pointer-events: none;
+            }
+            .mitxy_css_container {
+              position: relative; z-index: 2; width: 100%; max-width: 380px; text-align: center; transition: opacity 0.4s ease;
+            }
+            #mitxy_js_splash_box {
+              display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; min-height: 80vh;
+            }
+            .mitxy_css_spinner_ring {
+              width: 90px; height: 90px; border-radius: 50%;
+              border: 3px solid transparent; border-top-color: var(--mitxy_css_green); border-right-color: rgba(255, 255, 255, 0.8);
+              animation: mitxy_anim_spin 1.2s linear infinite; margin-bottom: 24px; box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+            }
+            @keyframes mitxy_anim_spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            .mitxy_css_progress_track {
+              width: 220px; height: 6px; background: var(--mitxy_css_card_bg); border: 1px solid var(--mitxy_css_border); border-radius: 99px; overflow: hidden; margin-top: 20px;
+            }
+            .mitxy_css_progress_fill {
+              width: 0%; height: 100%; background: linear-gradient(90deg, #ffffff, var(--mitxy_css_green)); transition: width 0.3s ease; border-radius: 99px;
+            }
+            #mitxy_js_login_box {
+              display: none; opacity: 0; transition: opacity 0.5s ease; width: 100%;
+            }
+            .mitxy_css_badge {
+              display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+              background: rgba(255, 255, 255, 0.06); border: 1px solid var(--mitxy_css_border);
+              border-radius: 99px; font-size: 0.75rem; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.5px;
+            }
+            .mitxy_css_dot { width: 8px; height: 8px; background: var(--mitxy_css_green); border-radius: 50%; box-shadow: 0 0 8px var(--mitxy_css_green); }
+            .mitxy_css_title { font-size: 1.7rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
+            .mitxy_css_sub { font-size: 0.85rem; color: var(--mitxy_css_subtext); margin-bottom: 24px; line-height: 1.4; }
+            .mitxy_css_card {
+              background: var(--mitxy_css_card_bg); border: 1px solid var(--mitxy_css_border);
+              border-radius: 20px; padding: 22px 18px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            }
+            .mitxy_css_input_group { text-align: left; margin-bottom: 16px; }
+            .mitxy_css_label { font-size: 0.72rem; font-weight: 700; color: var(--mitxy_css_subtext); text-transform: uppercase; margin-bottom: 6px; display: block; }
+            input[type="password"], input[type="text"] {
+              width: 100%; padding: 14px 16px; background: #000000; border: 1px solid var(--mitxy_css_border);
+              border-radius: 12px; color: #ffffff; font-size: 0.95rem; font-weight: 500; outline: none; transition: border-color 0.2s;
+            }
+            input:focus { border-color: var(--mitxy_css_green); }
+            .mitxy_css_btn {
+              width: 100%; padding: 15px; background: #ffffff; color: #000000; border: none;
+              border-radius: 12px; font-weight: 800; font-size: 0.95rem; cursor: pointer;
+              display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.15s, opacity 0.2s;
+            }
+            .mitxy_css_btn:active { transform: scale(0.98); }
+            .mitxy_css_btn:disabled { opacity: 0.6; cursor: not-allowed; }
+            .mitxy_css_err {
+              background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171;
+              border-radius: 10px; padding: 10px; font-size: 0.8rem; margin-bottom: 14px; text-align: center; display: none;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="mitxy_css_bg_grid"></div>
+          
+          <div class="mitxy_css_container" id="mitxy_js_splash_box">
+            <div class="mitxy_css_spinner_ring"></div>
+            <div style="font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">ONLINE SECURITY</div>
+            <div style="font-size: 0.75rem; color: var(--mitxy_css_subtext); margin-top: 6px;" id="mitxy_js_splash_status">Đang khởi tạo hệ thống...</div>
+            <div class="mitxy_css_progress_track">
+              <div class="mitxy_css_progress_fill" id="mitxy_js_progress_bar"></div>
+            </div>
+          </div>
+
+          <div class="mitxy_css_container" id="mitxy_js_login_box">
+            <div class="mitxy_css_badge">
+              <div class="mitxy_css_dot"></div>
+              XÁC THỰC BẢO MẬT ONLINE
+            </div>
+            <div class="mitxy_css_title">Nhập Key Kích Hoạt</div>
+            <div class="mitxy_css_sub">Vui lòng nhập Key VIP để bắt đầu sử dụng các tính năng Mod Menu.</div>
+
+            <div class="mitxy_css_card">
+              <div class="mitxy_css_err" id="mitxy_js_err_msg"></div>
+              <div class="mitxy_css_input_group">
+                <label class="mitxy_css_label">MÃ KEY KÍCH HOẠT</label>
+                <input type="password" id="mitxy_js_key_input" placeholder="Dán hoặc nhập Key tại đây..." autocomplete="off" autocapitalize="none">
+              </div>
+              <button type="button" class="mitxy_css_btn" id="mitxy_js_btn_submit" onclick="mitxy_js_submit()">
+                <span>KÍCH HOẠT NGAY</span>
+              </button>
+            </div>
+          </div>
+
+          <script>
+            let mitxy_js_p = 0;
+            const mitxy_js_pBar = document.getElementById('mitxy_js_progress_bar');
+            const mitxy_js_status = document.getElementById('mitxy_js_splash_status');
+
+            const mitxy_js_timer = setInterval(() => {
+              mitxy_js_p += 25;
+              if (mitxy_js_pBar) mitxy_js_pBar.style.width = mitxy_js_p + '%';
+              if (mitxy_js_p === 50 && mitxy_js_status) mitxy_js_status.innerText = 'Đang kiểm tra kết nối...';
+              if (mitxy_js_p === 75 && mitxy_js_status) mitxy_js_status.innerText = 'Sẵn sàng xác thực...';
+            if (mitxy_js_p >= 100) {
                 clearInterval(mitxy_js_timer);
                 setTimeout(() => {
                   const splashBox = document.getElementById('mitxy_js_splash_box');
