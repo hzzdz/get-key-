@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WEB GET KEY - AIMLOCK HZZ</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background: #000;
+
+            color: #fff;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            padding: 24px 14px;
+
+        }
+
+        /* =========================
+
+           CONTAINER
+
+        ========================= */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            border: 1px solid #292929;
+
+            border-radius: 32px;
+
+            padding: 38px 28px 28px;
+
+            background:
+
+                radial-gradient(
+
+                    circle at 50% 0%,
+
+                    rgba(255,255,255,0.025),
+
+                    transparent 35%
+
+                ),
+
+                #050505;
+
+        }
+
+        /* =========================
+
+           HEADER
+
+        ========================= */
+
+        .top-title {
+
+            text-align: center;
+
+            font-size: 32px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 30px;
+
+        }
+
+        /* =========================
+
+           PRODUCT HEADER
+
+        ========================= */
+
+        .product {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 0 26px 38px;
+
+        }
+
+        .product-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 26px;
+
+        }
+
+        .logo {
+
+            width: 124px;
+
+            height: 124px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 2px solid #fff;
+
+            background: #111;
+
+        }
+
+        .product-name {
+
+            font-size: 32px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+        }
+
+        .product-subtitle {
+
+            margin-top: 8px;
+
+            font-size: 20px;
+
+            color: #c8c8c8;
+
+        }
+
+        /* =========================
+
+           DOWNLOAD BUTTON
+
+        ========================= */
+
+        .download-btn {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 13px;
+
+            min-width: 205px;
+
+            height: 72px;
+
+            border: 1px solid #444;
+
+            border-radius: 17px;
+
+            background: #080808;
+
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .download-btn:hover {
+
+            background: #151515;
+
+            border-color: #777;
+
+            transform: translateY(-2px);
+
+        }
+
+        .download-icon {
+
+            font-size: 34px;
+
+            line-height: 1;
+
+        }
+
+        /* =========================
+
+           MAIN TITLE
+
+        ========================= */
+
+        .main-title {
+
+            text-align: center;
+
+            font-size: 48px;
+
+            font-weight: 800;
+
+            margin-top: 10px;
+
+        }
+
+        .description {
+
+            text-align: center;
+
+            color: #c8c8c8;
+
+            font-size: 24px;
+
+            margin-top: 18px;
+
+            margin-bottom: 48px;
+
+        }
+
+        /* =========================
+
+           STEP CARD
+
+        ========================= */
+
+        .step {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 26px;
+
+            min-height: 158px;
+
+            padding: 28px 28px;
+
+            margin-bottom: 28px;
+
+            border-radius: 22px;
+
+            border: 1px solid #191919;
+
+            background:
+
+                linear-gradient(
+
+                    120deg,
+
+                    #0b0b0b,
+
+                    #080808
+
+                );
+
+            box-shadow:
+
+                inset 0 0 30px rgba(255,255,255,0.008);
+
+        }
+
+        .step-icon {
+
+            width: 70px;
+
+            min-width: 70px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 46px;
+
+        }
+
+        .step-content {
+
+            flex: 1;
+
+        }
+
+        .step-title {
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+
+        }
+
+        .step-description {
+
+            color: #c9c9c9;
+
+            font-size: 19px;
+
+            line-height: 1.5;
+
+        }
+
+        .step-btn {
+
+            min-width: 205px;
+
+            height: 72px;
+
+            padding: 0 24px;
+
+            border-radius: 17px;
+
+            border: 1px solid #555;
+
+            background: transparent;
+
+            color: #fff;
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .step-btn:hover {
+
+            background: #fff;
+
+            color: #000;
+
+            border-color: #fff;
+
+        }
+
+        /* =========================
+
+           GET KEY
+
+        ========================= */
+
+        .key-card {
+
+            display: block;
+
+            padding: 32px 28px 28px;
+
+        }
+
+        .key-button {
+
+            width: 100%;
+
+            height: 92px;
+
+            border: none;
+
+            border-radius: 20px;
+
+            background: #fff;
+
+            color: #000;
+
+            font-size: 27px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .key-button:hover {
+
+            background: #ddd;
+
+            transform: translateY(-2px);
+
+        }
+
+        .key-button:active {
+
+            transform: scale(0.99);
+
+        }
+
+        /* =========================
+
+           NOTE
+
+        ========================= */
+
+        .note {
+
+            padding: 32px 28px;
+
+            margin-top: 28px;
+
+            border-radius: 22px;
+
+            border: 1px solid #191919;
+
+            background: #080808;
+
+        }
+
+        .note-title {
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            margin-bottom: 22px;
+
+        }
+
+        .note ul {
+
+            padding-left: 28px;
+
+        }
+
+        .note li {
+
+            color: #c9c9c9;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+        }
+
+        /* =========================
+
+           FOOTER
+
+        ========================= */
+
+        footer {
+
+            margin-top: 30px;
+
+            padding-top: 34px;
+
+            border-top: 1px solid #222;
+
+            text-align: center;
+
+            color: #c9c9c9;
+
+            font-size: 18px;
+
+        }
+
+        /* =========================
+
+           KEY RESULT
+
+        ========================= */
+
+        .key-result {
+
+            display: none;
+
+            margin-top: 22px;
+
+            padding: 20px;
+
+            border-radius: 14px;
+
+            border: 1px solid #333;
+
+            background: #0c0c0c;
+
+            text-align: center;
+
+        }
+
+        .key-result.show {
+
+            display: block;
+
+        }
+
+        .key-value {
+
+            margin-top: 8px;
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            word-break: break-all;
+
+        }
+
+        /* =========================
+
+           MOBILE
+
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            body {
+
+                padding: 12px 8px;
+
+            }
+
+            .container {
+
+                padding: 27px 14px 20px;
+
+                border-radius: 25px;
+
+            }
+
+            .top-title {
+
+                font-size: 25px;
+
+                margin-bottom: 28px;
+
+            }
+
+            .product {
+
+                padding: 0 8px 32px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+            .product-left {
+
+                gap: 17px;
+
+            }
+
+            .logo {
+
+                width: 86px;
+
+                height: 86px;
+
+            }
+
+            .product-name {
+
+                font-size: 23px;
+
+            }
+
+            .product-subtitle {
+
+                font-size: 15px;
+
+            }
+
+            .download-btn {
+
+                width: 100%;
+
+                height: 58px;
+
+                min-width: 0;
+
+                font-size: 17px;
+
+            }
+
+            .download-icon {
+
+                font-size: 27px;
+
+            }
+
+            .main-title {
+
+                font-size: 36px;
+
+            }
+
+            .description {
+
+                font-size: 17px;
+
+                line-height: 1.5;
+
+                margin-bottom: 30px;
+
+            }
+
+            .step {
+
+                flex-wrap: wrap;
+
+                gap: 16px;
+
+                padding: 22px;
+
+                min-height: 0;
+
+                margin-bottom: 20px;
+
+                border-radius: 19px;
+
+            }
+
+            .step-icon {
+
+                width: 45px;
+
+                min-width: 45px;
+
+                font-size: 33px;
+
+            }
+
+            .step-content {
+
+                width: calc(100% - 65px);
+
+            }
+
+            .step-title {
+
+                font-size: 20px;
+
+                margin-bottom: 9px;
+
+            }
+
+            .step-description {
+
+                font-size: 15px;
+
+            }
+
+            .step-btn {
+
+                width: 100%;
+
+                height: 58px;
+
+                min-width: 0;
+
+                font-size: 18px;
+
+            }
+
+            .key-card {
+
+                padding: 24px 20px 20px;
+
+            }
+
+            .key-button {
+
+                height: 70px;
+
+                font-size: 22px;
+
+            }
+
+            .note {
+
+                padding: 24px 20px;
+
+            }
+
+            .note-title {
+
+                font-size: 21px;
+
+            }
+
+            .note li {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+
+            }
+
+            footer {
+
+                font-size: 14px;
+
+                padding-top: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="top-title">
+
+        WEB GET KEY
+
+    </div>
+
+    <!-- PRODUCT -->
+
+    <div class="product">
+
+        <div class="product-left">
+
+            <!-- Đổi logo.png thành ảnh logo của bạn -->
+
+            <img
+
+                src="logo.png"
+
+                alt="AIMLOCK HZZ"
+
+                class="logo"
+
+            >
+
+            <div>
+
+                <div class="product-name">
+
+                    AIMLOCK HZZ
+
+                </div>
+
+                <div class="product-subtitle">
+
+                    GET LICENSE KEY
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+
+            class="download-btn"
+
+            onclick="downloadAimlock()"
+
+        >
+
+            <span class="download-icon">⇩</span>
+
+            AIMLOCK
+
+        </button>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <h1 class="main-title">
+
+        Nhận License Key
+
+    </h1>
+
+    <p class="description">
+
+        Hoàn thành các bước bên dưới để nhận key miễn phí.
+
+    </p>
+
+    <!-- STEP 1 -->
+
+    <div class="step">
+
+        <div class="step-icon">
+
+            ✓
+
+        </div>
+
+        <div class="step-content">
+
+            <div class="step-title">
+
+                Bước 1: Join Discord
+
+            </div>
+
+            <div class="step-description">
+
+                Tham gia máy chủ Discord của chúng tôi.
+
+            </div>
+
+        </div>
+
+        <button
+
+            class="step-btn"
+
+            onclick="joinDiscord()"
+
+        >
+
+            Join Discord
+
+        </button>
+
+    </div>
+
+    <!-- STEP 2 -->
+
+    <div class="step">
+
+        <div class="step-icon">
+
+            ✈
+
+        </div>
+
+        <div class="step-content">
+
+            <div class="step-title">
+
+                Bước 2: Tham gia nhóm Tele
+
+            </div>
+
+            <div class="step-description">
+
+                Tham gia nhóm Telegram để cập nhật và nhận hỗ trợ.
+
+            </div>
+
+        </div>
+
+        <button
+
+            class="step-btn"
+
+            onclick="joinTelegram()"
+
+        >
+
+            Tham gia
+
+        </button>
+
+    </div>
+
+    <!-- STEP 3 -->
+
+    <div class="step key-card">
+
+        <div class="step-icon">
+
+            ⚿
+
+        </div>
+
+        <div class="step-content">
+
+            <div class="step-title">
+
+                Bước 3: Nhận Key
+
+            </div>
+
+            <div class="step-description">
+
+                Nhấn nút bên dưới để lấy License Key.
+
+            </div>
+
+        </div>
+
+        <button
+
+            class="key-button"
+
+            onclick="getKey()"
+
+        >
+
+            Lấy Key
+
+        </button>
+
+        <div
+
+            id="keyResult"
+
+            class="key-result"
+
+        >
+
+            <div>
+
+                License Key của bạn:
+
+            </div>
+
+            <div
+
+                id="keyValue"
+
+                class="key-value"
+
+            ></div>
+
+        </div>
+
+    </div>
+
+    <!-- NOTE -->
+
+    <div class="note">
+
+        <div class="note-title">
+
+            Lưu ý
+
+        </div>
+
+        <ul>
+
+            <li>Key có thời hạn 24 giờ.</li>
+
+            <li>Mỗi thiết bị chỉ được lấy 1 key / 24h.</li>
+
+            <li>Không chia sẻ key cho người khác.</li>
+
+        </ul>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2025 AimLock HZZ. All rights reserved.
+
+    </footer>
+
+</div>
+
+<script>
+
+    /* =========================
+
+       LINK DISCORD
+
+    ========================= */
+
+    function joinDiscord() {
+
+        window.open(
+
+            "https://discord.gg/YOUR_INVITE",
+
+            "_blank"
+
+        );
+
+    }
+
+    /* =========================
+
+       LINK TELEGRAM
+
+    ========================= */
+
+    function joinTelegram() {
+
+        window.open(
+
+            "https://t.me/YOUR_TELEGRAM",
+
+            "_blank"
+
+        );
+
+    }
+
+    /* =========================
+
+       DOWNLOAD AIMLOCK
+
+    ========================= */
+
+    function downloadAimlock() {
+
+        window.open(
+
+            "https://YOUR-DOWNLOAD-LINK.com",
+
+            "_blank"
+
+        );
+
+    }
+
+    /* =========================
+
+       GET KEY
+
+    ========================= */
+
+    function getKey() {
+
+        const button = document.querySelector(".key-button");
+
+        button.innerText = "Đang kiểm tra...";
+
+        button.disabled = true;
+
+        setTimeout(() => {
+
+            /*
+
+             * Đây chỉ là key demo.
+
+             *
+
+             * GitHub Pages chỉ chạy HTML/CSS/JS
+
+             * nên không thể tự tạo key bảo mật
+
+             * ở phía server.
+
+             */
+
+            const randomKey =
+
+                "HZZ-" +
+
+                Math.random()
+
+                    .toString(36)
+
+                    .substring(2, 8)
+
+                    .toUpperCase() +
+
+                "-" +
+
+                Math.random()
+
+                    .toString(36)
+
+                    .substring(2, 8)
+
+                    .toUpperCase();
+
+            document.getElementById("keyValue").innerText =
+
+                randomKey;
+
+            document
+
+                .getElementById("keyResult")
+
+                .classList.add("show");
+
+            button.innerText = "Đã lấy Key";
+
+            button.disabled = false;
+
+        }, 1000);
+
+    }
+
+</script>
+
+</body>
+
+</html>
