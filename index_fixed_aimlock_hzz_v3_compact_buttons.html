@@ -192,15 +192,6 @@ input:focus{border-color:rgba(255,255,255,.4);box-shadow:0 0 0 3px rgba(255,255,
   .mitxy_css_btn{height:50px}
   .mitxy_css_small_btn{height:44px}
 }
-.activate-icon{
-
-  width:25px;
-
-  height:25px;
-
-  flex-shrink:0;
-
-}
 
 /* splash -> login transition */
 #mitxy_js_splash_box.is-done{display:none!important}
@@ -220,7 +211,7 @@ input:focus{border-color:rgba(255,255,255,.4);box-shadow:0 0 0 3px rgba(255,255,
       <div class="mitxy_css_progress_fill" id="mitxy_js_progress_bar"></div>
     </div>
     <div class="mitxy_css_progress_info">
-      <span>ONLINE v1.1.1</span><span id="mitxy_js_progress_percent">0%</span>
+      <span>ONLINE v1.0.1</span><span id="mitxy_js_progress_percent">0%</span>
     </div>
   </div>
 
@@ -248,14 +239,12 @@ input:focus{border-color:rgba(255,255,255,.4);box-shadow:0 0 0 3px rgba(255,255,
       <label class="mitxy_css_label">LICENSE KEY</label>
       <input type="password" id="mitxy_js_key_input"
         placeholder="" autocomplete="off" autocapitalize="none">
+    </div>
 
-<button type="button" class="mitxy_css_btn" id="mitxy_js_btn_submit" onclick="mitxy_js_submit()">
-
-  <span style="font-size:22px"></span>
-
-  <span id="mitxy_js_activate_text">Kích Hoạt</span>
-
-</button>
+    <button type="button" class="mitxy_css_btn" id="mitxy_js_btn_submit" onclick="mitxy_js_submit()">
+      <span style="font-size:22px"></span>
+      <span id="mitxy_js_activate_text">Kích Hoạt</span>
+    </button>
 
     <div class="mitxy_css_row">
       <button type="button" class="mitxy_css_small_btn" onclick="mitxy_js_get_key()">
