@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Notes</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#000;
+  --panel:#0b0b0b;
+  --panel2:#101010;
+  --line:#292929;
+  --text:#f5f5f5;
+  --muted:#bdbdbd;
+}
+body{
+  margin:0;
+  min-height:100vh;
+  background:#000;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+.page{
+  width:min(620px,90%);
+  margin:10px auto;
+}
+.top-title{
+  text-align:center;
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin:24px 0 20px;
+}
+.shell{
+  border:2px solid #252525;
+  border-radius:20px;
+  padding:12px;
+  background:linear-gradient(145deg,#080808,#020202);
+  box-shadow:0 0 40px rgba(255,255,255,.015);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:16px;
+}
+.brand-left{display:flex;align-items:center;gap:28px}
+.logo{
+  width:62px;height:62px;border:2px solid #eee;border-radius:50%;
+  display:grid;place-items:center;flex:none;
+}
+.logo svg{width:62px;height:62px}
+.brand-name{font-size:27px;font-weight:700;letter-spacing:1px}
+.brand-sub{font-size:18px;color:#ccc;margin-top:8px}
+button{
+  border:1px solid #666;
+  background:#080808;
+  color:#fff;
+  border-radius:14px;
+  padding:9px 13px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+button:hover{background:#171717;border-color:#aaa}
+.hero{text-align:center;margin-bottom:42px}
+.hero h1{font-size:34px;margin:0 0 14px}
+.hero p{font-size:18px;color:#c9c9c9;margin:0}
+.notes{display:grid;gap:24px}
+.note{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:86px;
+  padding:11px;
+  border:1px solid #1e1e1e;
+  border-radius:20px;
+  background:linear-gradient(145deg,#111,#090909);
+}
+.icon{
+  width:44px;height:44px;border:2px solid #3a3a3a;border-radius:14px;
+  display:grid;place-items:center;flex:none;
+}
+.icon svg{width:42px;height:42px}
+.yellow{color:#ffe35b}.green{color:#76e3b0}.purple{color:#bf79ff}.blue{color:#75a8ff}
+.note-body{min-width:0;flex:1}
+.note-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.note h2{font-size:17px;margin:0}
+.date{font-size:16px;color:#bdbdbd;white-space:nowrap}
+.note p,.note li{font-size:13px;color:#999;line-height:1.5}
+.note p{margin:10px 0 0}
+.note ul{margin:9px 0 0;padding-left:20px}
+.menu{font-size:28px;color:#aaa;align-self:flex-start}
+.dot{
+  position:absolute;right:13px;bottom:13px;width:10px;height:10px;border-radius:50%;
+  background:currentColor;
+}
+.info{
+  margin-top:12px;
+  padding:14px;
+  border:1px solid #1e1e1e;
+  border-radius:16px;
+  background:#0c0c0c;
+}
+.info h2{font-size:17px;margin:0 0 18px}
+.info ul{margin:0;padding-left:24px}
+.info li{font-size:13px;color:#999;line-height:1.7}
+footer{
+  border-top:1px solid #1c1c1c;
+  margin-top:12px;padding-top:22px;
+  text-align:center;color:#bbb;font-size:15px;
+}
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.75);
+  display:none;place-items:center;padding:20px;
+}
+.modal.show{display:grid}
+.modal-box{
+  width:min(600px,100%);background:#101010;border:1px solid #333;
+  border-radius:16px;padding:28px;
+}
+.modal-box h2{margin-top:0}
+input,textarea{
+  width:100%;background:#050505;color:#fff;border:1px solid #333;
+  border-radius:14px;padding:15px;font:inherit;margin:8px 0 14px;
+}
+textarea{min-height:140px;resize:vertical}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px}
+@media(max-width:650px){
+  .page{width:96%;margin:14px auto}
+  .shell{padding:14px;border-radius:20px}
+  .top-title{font-size:22px}
+  .brand{align-items:flex-start;margin-bottom:28px}
+  .brand-left{gap:15px}.logo{width:70px;height:70px}.logo svg{width:45px;height:45px}
+  .brand-name{font-size:19px}.brand-sub{font-size:14px}
+  button{font-size:14px;padding:10px 13px}
+  .hero h1{font-size:27px}.hero p{font-size:12px}
+  .note{padding:11px;gap:13px;min-height:112px}
+  .icon{width:40px;height:40px}.icon svg{width:30px;height:30px}
+  .note h2{font-size:17px}.date{font-size:13px}
+  .note p,.note li{font-size:14px}
+  .dot{right:20px;bottom:20px;width:14px;height:14px}
+  .info{padding:17px}.info h2{font-size:19px}.info li{font-size:14px}
+  footer{font-size:12px}
+}
+
+.note .menu{
+  cursor:pointer;
+  user-select:none;
+  padding:2px 5px;
+  border-radius:8px;
+}
+.note .menu:hover{background:#202020;color:#fff}
+.note-actions{
+  position:absolute;
+  top:38px;
+  right:14px;
+  z-index:5;
+  display:none;
+  min-width:105px;
+  padding:5px;
+  border:1px solid #333;
+  border-radius:12px;
+  background:#111;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+.note-actions.show{display:block}
+.note-actions button{
+  display:block;width:100%;padding:9px 10px;
+  border:0;background:transparent;text-align:left;
+  font-size:13px;font-weight:500;
+}
+.note-actions button:hover{background:#202020}
+.empty{
+  padding:34px 18px;text-align:center;color:#777;
+  border:1px dashed #292929;border-radius:18px;
+}
+@media(max-width:650px){
+  .brand-left{gap:12px}
+  .logo{width:64px;height:64px}
+  .logo svg{width:40px;height:40px}
+  .brand-name{font-size:18px}
+  .brand-sub{font-size:12px}
+  .hero h1{font-size:25px}
+  .note{min-height:98px;padding:13px;gap:11px}
+  .icon{width:48px;height:48px}
+  .icon svg{width:28px;height:28px}
+  .note h2{font-size:16px}
+  .date{font-size:12px}
+  .note p,.note li{font-size:13px}
+}
+
+
+@media(max-width:650px){
+  .page{width:92%;margin:8px auto}
+  .top-title{font-size:18px;margin:12px 0 10px}
+  .shell{padding:9px;border-radius:16px}
+  .brand{gap:8px;margin-bottom:13px}
+  .brand-left{gap:9px}
+  .logo{width:50px;height:50px}
+  .logo svg{width:32px;height:32px}
+  .brand-name{font-size:15px}
+  .brand-sub{font-size:10px;margin-top:3px}
+  button{font-size:11px;padding:7px 9px;border-radius:9px}
+  .hero{margin-bottom:13px}
+  .hero h1{font-size:21px;margin-bottom:6px}
+  .hero p{font-size:11px}
+  .notes{gap:8px}
+  .note{min-height:72px;padding:9px;gap:8px;border-radius:13px}
+  .icon{width:38px;height:38px;border-radius:10px}
+  .icon svg{width:23px;height:23px}
+  .note h2{font-size:14px}
+  .date{font-size:10px}
+  .note p,.note li{font-size:11px;line-height:1.35}
+  .note p{margin-top:4px}
+  .note ul{margin-top:4px;padding-left:14px}
+  .dot{right:10px;bottom:9px;width:8px;height:8px}
+  .menu{font-size:19px}
+  .info{margin-top:10px;padding:11px;border-radius:13px}
+  .info h2{font-size:15px;margin-bottom:7px}
+  .info li{font-size:11px;line-height:1.45}
+  footer{margin-top:10px;padding-top:9px;font-size:10px}
+}
+
+
+@media(max-width:650px){
+  .modal-box{width:88vw;border-radius:18px}
+  .modal-head{padding:12px 13px}
+  .modal-head h2{font-size:14px}
+  .modal-content{padding:12px 13px 13px}
+  input,textarea{font-size:12px;border-radius:12px}
+  textarea{min-height:95px}
+}
+
+.reader-content{
+  color:#d4d4d4;
+  font-size:14px;
+  line-height:1.7;
+  white-space:pre-wrap;
+  word-break:break-word;
+  min-height:40px;
+}
+.reader-content .reader-date{
+  color:#777;
+  font-size:11px;
+  margin-bottom:10px;
+}
+.note{cursor:pointer}
+.note:hover{border-color:#333;background:linear-gradient(145deg,#141414,#0b0b0b)}
+@media(max-width:650px){
+  .reader-content{font-size:12px;line-height:1.6}
+}
+
+/* ===== POPUP NOTES - chỉ thêm popup, không thay đổi layout web ===== */
+.modal{
+  z-index:1000;
+}
+
+.modal-box{
+  position:relative;
+  width:min(420px,88vw);
+  max-height:70vh;
+  overflow:hidden;
+  padding:0;
+  border-radius:18px;
+}
+
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:11px 10px 11px 15px;
+  border-bottom:1px solid #2b2b2b;
+}
+
+.modal-head h2{
+  margin:0;
+  font-size:15px;
+}
+
+.modal-close{
+  width:30px;
+  height:30px;
+  min-width:30px;
+  padding:0;
+  border:0;
+  border-radius:9px;
+  background:#222;
+  color:#999;
+  font-size:22px;
+  line-height:30px;
+  display:grid;
+  place-items:center;
+}
+
+.modal-content{
+  padding:10px 12px 12px;
+  max-height:calc(70vh - 55px);
+  overflow-y:auto;
+}
+
+.reader-box{
+  margin:8px 0;
+  padding:12px 13px;
+  border:1px solid #363636;
+  border-radius:13px;
+  background:linear-gradient(145deg,#232323,#1b1b1b);
+  color:#ddd;
+  text-align:center;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.reader-box:first-of-type{margin-top:0}
+.reader-box:last-child{margin-bottom:0}
+
+@media(max-width:650px){
+  .modal-box{
+    width:88vw;
+    max-width:420px;
+  }
+
+  .modal-head{
+    padding:10px 9px 10px 14px;
+  }
+
+  .modal-head h2{font-size:14px}
+
+  .modal-close{
+    width:30px;
+    height:30px;
+    min-width:30px;
+    font-size:21px;
+  }
+
+  .modal-content{
+    padding:9px 10px 11px;
+    max-height:65vh;
+  }
+
+  .reader-box{
+    padding:11px 12px;
+    font-size:12px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-title">WEB NOTES</div>
+
+  <main class="shell">
+    <header class="brand">
+      <div class="brand-left">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3">
+            <rect x="13" y="8" width="35" height="48" rx="5"/>
+            <path d="M22 22h17M22 31h17M22 40h10"/>
+            <path d="M43 46l8-8 5 5-8 8-7 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">MY NOTES</div>
+          <div class="brand-sub">GHI CHÚ CỦA BẠN</div>
+        </div>
+      </div>
+      
+    </header>
+
+    <section class="hero">
+      <h1>Ghi Chú Của Tôi</h1>
+      <p>Quản lý và xem lại các ghi chú quan trọng của bạn.</p>
+    </section>
+
+    <section class="notes" id="notes">
+      <article class="note">
+        <div class="note-content" hidden>
+Nội dung khung số 1 - sửa chữ tại đây
+Nội dung khung số 2 - sửa chữ tại đây
+Nội dung khung số 3 - sửa chữ tại đây
+</div>
+        <div class="icon yellow">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3">
+            <rect x="10" y="7" width="28" height="34" rx="4"/>
+            <path d="M17 17h14M17 24h14M17 31h8"/>
+          </svg>
+        </div>
+        <div class="note-body">
+          <div class="note-head"><h2>Ý tưởng dự án mới</h2><span class="date">20/05/2025</span></div>
+          <p>Một số ý tưởng về tính năng cho dự án web sắp tới...</p>
+        </div>
+        <span class="menu">⋮</span><span class="dot yellow"></span>
+      </article>
+
+      <article class="note">
+        <div class="note-content" hidden>
+Hoàn thiện giao diện trang chủ
+Tối ưu hiệu suất website
+Kiểm tra lại các chức năng
+</div>
+        <div class="icon green">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M9 13h6M9 24h6M9 35h6M19 13l3 3 7-7M19 24l3 3 7-7M19 35h20"/>
+          </svg>
+        </div>
+        <div class="note-body">
+          <div class="note-head"><h2>Việc cần làm</h2><span class="date">19/05/2025</span></div>
+          <ul><li>Hoàn thiện giao diện trang chủ</li><li>Tối ưu hiệu suất website</li></ul>
+        </div>
+        <span class="menu">⋮</span><span class="dot green"></span>
+      </article>
+
+      <article class="note">
+        <div class="note-content" hidden>
+Nội dung cuộc họp - sửa chữ tại đây
+Công việc đã thống nhất
+Những việc cần hoàn thành
+</div>
+        <div class="icon purple">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M24 8c-8 0-13 6-13 14 0 5 3 8 6 10v6h14v-6c3-2 6-5 6-10 0-8-5-14-13-14z"/>
+            <path d="M19 43h10"/>
+          </svg>
+        </div>
+        <div class="note-body">
+          <div class="note-head"><h2>Ghi chú cuộc họp</h2><span class="date">18/05/2025</span></div>
+          <p>Nội dung cuộc họp với team vào ngày 18/05/2025...</p>
+        </div>
+        <span class="menu">⋮</span><span class="dot purple"></span>
+      </article>
+
+      <article class="note">
+        <div class="note-content" hidden>
+Những kiến thức mới cần học
+JavaScript nâng cao
+AI & Machine Learning
+</div>
+        <div class="icon blue">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M8 10c6-3 11-2 16 2v27c-5-4-10-5-16-2z"/>
+            <path d="M40 10c-6-3-11-2-16 2v27c5-4 10-5 16-2z"/>
+          </svg>
+        </div>
+        <div class="note-body">
+          <div class="note-head"><h2>Học tập</h2><span class="date">17/05/2025</span></div>
+          <p>Những kiến thức mới cần học:<br>- JavaScript nâng cao<br>- AI &amp; Machine Learning</p>
+        </div>
+        <span class="menu">⋮</span><span class="dot blue"></span>
+      </article>
+    </section>
+
+    <section class="info">
+      <h2>Lưu ý</h2>
+      <ul>
+        <li>Các ghi chú được viết sẵn để bạn đọc.</li>
+        <li>Nhấn vào từng mục để xem đầy đủ nội dung.</li>
+        <li>Người đọc không thể chỉnh sửa hoặc tạo ghi chú.</li>
+      </ul>
+    </section>
+
+    <footer>© 2025 My Notes. All rights reserved.</footer>
+  </main>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="modalTitle">📝 Ghi chú</h2>
+      <button class="modal-close" id="closeModal" aria-label="Đóng">×</button>
+    </div>
+    <div class="modal-content">
+      <div id="readerContent" class="reader-content"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById("modal");
+const notesEl = document.getElementById("notes");
+const readerTitle = document.getElementById("modalTitle");
+const readerContent = document.getElementById("readerContent");
+
+function openReader(note){
+  const title = note.querySelector("h2").textContent;
+  const content = note.querySelector(".note-content")?.textContent.trim() || "";
+  const date = note.querySelector(".date")?.textContent || "";
+
+  readerTitle.textContent = "📝 " + title;
+  readerContent.innerHTML = "";
+
+  const dateEl = document.createElement("div");
+  dateEl.className = "reader-date";
+  dateEl.textContent = date;
+  readerContent.appendChild(dateEl);
+
+  content.split("\n").map(x => x.trim()).filter(Boolean).forEach(line => {
+    const box = document.createElement("div");
+    box.className = "reader-box";
+    box.textContent = line;
+    readerContent.appendChild(box);
+  });
+  modal.classList.add("show");
+}
+
+notesEl.addEventListener("click", e => {
+  const note = e.target.closest(".note");
+  if(note) openReader(note);
+});
+
+document.getElementById("closeModal").onclick = () => {
+  modal.classList.remove("show");
+};
+
+modal.addEventListener("click", e => {
+  if(e.target === modal) modal.classList.remove("show");
+});
+</script>
+</body>
+</html>
