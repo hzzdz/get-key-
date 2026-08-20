@@ -451,12 +451,14 @@ function mitxy_js_toggle_language(){
   const d=document.getElementById('mitxy_js_login_sub');
   const a=document.getElementById('mitxy_js_activate_text');
   const dis=document.getElementById('mitxy_js_discord_text');
+  const key=document.getElementById('mitxy_js_key_input');
   const en=t.textContent==='VI';
   t.textContent=en?'EN':'VI';
   s.textContent=en?'SYSTEM READY':'HỆ THỐNG ĐÃ SẴN SÀNG';
   d.textContent=en?'Enter License Key to unlock Online Mod Menu':'Nhập License Key để mở khóa Mod Menu Online';
   a.textContent=en?'Activate':'Kích Hoạt';
   dis.textContent=en?'Discord Group':'Nhóm Discord';
+  key.placeholder=en?'Enter activation key...':'Nhập mã Key kích hoạt...';
 }
 </script>
 
