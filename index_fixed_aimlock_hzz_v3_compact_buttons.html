@@ -151,14 +151,34 @@ input:focus{border-color:rgba(255,255,255,.4);box-shadow:0 0 0 3px rgba(255,255,
 }
 .activate-icon{
 
-  width:25px;
+  width:20px;
 
-  height:25px;
+  height:20px;
 
   flex-shrink:0;
 
 }
-  
+.small-icon{
+
+  width:20px;
+
+  height:20px;
+
+  flex-shrink:0;
+
+}
+
+.mitxy_css_small_btn{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+}
 .mitxy_css_btn:active{transform:scale(.985)}
 .mitxy_css_btn:disabled{opacity:.6}
 .mitxy_css_row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
@@ -258,18 +278,36 @@ input:focus{border-color:rgba(255,255,255,.4);box-shadow:0 0 0 3px rgba(255,255,
   <path d="m8.2 12 2.4 2.4 5.2-5.2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 
 </svg>
-      <span id="mitxy_js_activate_text">Kích Hoạt</span>
+      <span id="mitxy_js_activate_text">  Kích Hoạt</span>
     </button>
 
     <div class="mitxy_css_row">
-      <button type="button" class="mitxy_css_small_btn" onclick="mitxy_js_get_key()">
-        <span style="font-size:24px"></span>
-        <span>Get Key</span>
-      </button>
-      <button type="button" class="mitxy_css_small_btn" onclick="mitxy_js_open_discord()">
-        <span style="font-size:21px"></span>
-        <span id="mitxy_js_discord_text">Nhóm Discord</span>
-      </button>
+     <button type="button" class="mitxy_css_small_btn" onclick="mitxy_js_get_key()">
+
+  <svg class="small-icon" viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M14.5 3.5a6 6 0 1 0 0 12c1.2 0 2.3-.35 3.2-.95L21 18v2h-2v-2h-2v-2h-2.1a6 6 0 0 0 1.6-12.5ZM10 9.5A1.5 1.5 0 1 1 10 6.5a1.5 1.5 0 0 1 0 3Z"
+
+          fill="#000"/>
+
+  </svg>
+
+  <span>  Get Key</span>
+
+</button>
+   <button type="button" class="mitxy_css_small_btn" onclick="mitxy_js_open_discord()">
+
+  <svg class="small-icon" viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M19.5 5.5A16.5 16.5 0 0 0 15.7 4l-.5 1.1a14 14 0 0 0-6.4 0L8.3 4a16.5 16.5 0 0 0-3.8 1.5C2.2 9 1.5 12.5 1.8 16c1.6 1.2 3.2 1.9 4.8 2.4l1.1-1.5c-.6-.2-1.2-.5-1.7-.8l.4-.3c3.3 1.5 6.9 1.5 10.2 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.5c1.6-.5 3.2-1.2 4.8-2.4.4-4.1-.7-7.6-1.7-10.5ZM8.8 14.5c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"
+
+          fill="#000"/>
+
+  </svg>
+
+  <span>  Nhóm Discord</span>
+
+</button>
     </div>
   </div>
 
